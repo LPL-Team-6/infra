@@ -4,7 +4,8 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
 
-      ConnectionStrings__DefaultConnection: >
+      Database__Provider: Postgres
+      ConnectionStrings__Postgres: >
         Host=db;
         Port=5432;
         Database=${POSTGRES_DB};
