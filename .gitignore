@@ -1,1 +1,18 @@
+# The classic
 .env
+
+# Terraform state
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Terraform variable files
+*.tfvars
+*.tfvars.json
+
+# Crash logs
+crash.log
+crash.*.log
+
+# CLI plan files
+*.tfplan
