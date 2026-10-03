@@ -1,4 +1,12 @@
 services:
+  frontend:
+    image: ghcr.io/lpl-team-6/caseauth-frontend:latest
+    ports:
+      - 4200:80
+    depends_on:
+      api:
+        condition: service_started
+
   api:
     image: ghcr.io/lpl-team-6/caseauth-api:latest
     environment:
