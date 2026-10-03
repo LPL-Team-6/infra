@@ -14,16 +14,21 @@ kubectl -n caseauth create secret generic caseauth-secrets \
 kubectl apply -k infra/k8s
 ```
 
-For a local demo, expose the services in separate terminals:
+For a local demo, expose the frontend:
 
 ```sh
 kubectl -n caseauth port-forward svc/caseauth-frontend 4200:80
-kubectl -n caseauth port-forward svc/caseauth-api 5020:8080
 ```
 
-Open <http://localhost:4200>. The API currently uses the frontend's existing
-`http://localhost:5020` development URL. The local Postgres volume is provided
-by the cluster's default storage class.
+Open <http://localhost:4200>. Nginx proxies `/api` to the internal API service.
+Postgres uses ephemeral storage for this hackathon deployment, so replacing its
+pod resets the demo data.
+
+On EKS, wait for the public frontend address:
+
+```sh
+kubectl -n caseauth get svc caseauth-frontend -w
+```
 
 Check the rollout and remove the demo with:
 

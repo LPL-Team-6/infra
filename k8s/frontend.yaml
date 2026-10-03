@@ -21,13 +21,10 @@ spec:
       containers:
         - name: frontend
           image: ghcr.io/lpl-team-6/caseauth-frontend:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 80
-          envFrom:
-            - configMapRef:
-                name: caseauth-frontend-config
           readinessProbe:
             httpGet:
               path: /
@@ -55,6 +52,7 @@ spec:
             allowPrivilegeEscalation: false
             capabilities:
               drop: [ALL]
+              add: [CHOWN, SETGID, SETUID]
       
 ---
 apiVersion: v1
@@ -69,4 +67,4 @@ spec:
     - name: http
       port: 80
       targetPort: http
-  type: ClusterIP
+  type: LoadBalancer

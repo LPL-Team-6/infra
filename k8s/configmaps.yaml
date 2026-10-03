@@ -9,11 +9,3 @@ data:
   Database__Provider: Postgres
   Storage__Mode: LocalDisk
   Storage__LocalDiskRoot: /app/storage
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: caseauth-frontend-config
-  namespace: caseauth
-data:
-  API_URL: http://caseauth-api:8080

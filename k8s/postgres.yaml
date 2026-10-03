@@ -76,16 +76,4 @@ spec:
               memory: 512Mi
       volumes:
         - name: postgres-data
-          persistentVolumeClaim:
-            claimName: caseauth-db
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: caseauth-db
-  namespace: caseauth
-spec:
-  accessModes: [ReadWriteOnce]
-  resources:
-    requests:
-      storage: 1Gi
+          emptyDir: {}

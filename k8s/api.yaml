@@ -47,7 +47,7 @@ spec:
       containers:
         - name: api
           image: ghcr.io/lpl-team-6/caseauth-api:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8080
@@ -102,7 +102,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: caseauth-api
+  name: api
   namespace: caseauth
 spec:
   selector:
