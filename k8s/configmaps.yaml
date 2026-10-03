@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: caseauth-api-config
+  namespace: caseauth
+data:
+  ASPNETCORE_ENVIRONMENT: Development
+  ASPNETCORE_URLS: http://+:8080
+  Database__Provider: Postgres
+  Storage__Mode: LocalDisk
+  Storage__LocalDiskRoot: /app/storage
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: caseauth-frontend-config
+  namespace: caseauth
+data:
+  API_URL: http://caseauth-api:8080

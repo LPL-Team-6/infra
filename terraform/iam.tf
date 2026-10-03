@@ -56,11 +56,11 @@ resource "aws_iam_role_policy" "caseauth" {
       },
 
       {
-        Sid    = "ListDocumentBuckets"
+        Sid    = "ListDocumentBucket"
         Effect = "Allow"
 
         Action = [
-          "s3:ListBuckets"
+          "s3:ListBucket"
         ]
 
         Resource = [

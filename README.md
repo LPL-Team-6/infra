@@ -8,6 +8,9 @@ Run it:
 docker compose up
 ```
 
+The frontend is available at http://localhost:4200 and the API at
+http://localhost:5020.
+
 Take down:
 
 ```sh
