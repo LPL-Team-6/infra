@@ -26,12 +26,10 @@ variable "bedrock_model_id" {
   description = "The model bedrock will use"
   type        = string
 
-  # TODO: PICK MODEL
+  default = "anthropic.claude-sonnet-4-6"
 }
 
 variable "trusted_principle_arn" {
   description = "AWS principal allowed to assume the CaseAuth application role"
   type        = string
-
-  # TODO: Set the aws principal
 }
